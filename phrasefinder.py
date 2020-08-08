@@ -43,16 +43,16 @@ def find_phrases(phrases, files):
     for phrase in phrases:
         found[phrase] = []
         for (name,text) in files:
-            split = text.partition(phrase)
-            while len(split[1]) == len(phrase):
-                context = "{} {} {}".format(
-                        (" ".join(split[0].split(" ")[-10:])), 
-                        split[1], 
-                        (" ".join(split[2].split(" ")[:10]))
+            parted = text.partition(phrase)
+            while len(parted[1]) == len(phrase):
+                context = "{}{}{}".format(
+                        (" ".join(parted[0].split(" ")[-10:])), 
+                        parted[1], 
+                        (" ".join(parted[2].split(" ")[:10]))
                     ).replace("\n", " ")
                 for x in html_tags: context = context.replace(x, "")
                 found[phrase].append((name.split("/")[-1], context))
-                split = split[2].partition(phrase)
+                parted = parted[2].partition(phrase)
     return found
 
 
@@ -77,6 +77,8 @@ def display_and_save(found, longest_filename):
 
 
 def main():
+    print("Starting...")
+
     (txt_dir, xlsx_path) =  get_args()
 
     phrases = get_phrases(xlsx_path)
