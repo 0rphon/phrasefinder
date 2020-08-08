@@ -22,7 +22,7 @@ def get_files(path):
         files = ["/".join((path,f)) for f in listdir(path) if f.endswith(".txt")]
         file_data = []
         for name in files:
-            file_data.append((name,open(name, "rb").read().lower()))
+            file_data.append((name,open(name, "r").read().lower()))
         return file_data
     else:
         print("Error: cannot find text file directory")
