@@ -22,7 +22,7 @@ def get_files(path):
         files = ["/".join((path,f)) for f in listdir(path) if f.endswith(".txt")]
         file_data = []
         for name in files:
-            file_data.append((name,open(name, "r").read()))
+            file_data.append((name,open(name, "r").read().lower()))
         return file_data
     else:
         print("Error: cannot find text file directory")
@@ -31,7 +31,7 @@ def get_files(path):
 
 def get_phrases(doc):
     if pathlib.exists(doc):
-        return [line[0] for line in pd.read_excel(doc).iloc()]
+        return [line[0].lower() for line in pd.read_excel(doc).iloc()]
     else:
         print("Error: cannot find excel file")
         exit(4)
@@ -57,7 +57,7 @@ def find_phrases(phrases, files):
 
 
 def display_and_save(found, longest_filename):
-    output = open("output.txt","w")
+    output = open("output.txt","w", encoding="utf-8")
     for (phrase, instance) in found.items(): 
         if len(instance) != 0:
             out = '\n"{}"'.format(phrase)
