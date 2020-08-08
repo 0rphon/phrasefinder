@@ -4,7 +4,7 @@ from os import listdir, path as pathlib
 
 def get_args():
     if "--help" in argv:
-        print("Usage: python phrasefinder.py [name of text folder] [name of xlsx file]")
+        print("Usage: python phrasefinder.py [name of text folder] [name of excel file]")
         exit(0)
     elif len(argv) < 3:
         print("Error: not enough specified arguments! try --help")
