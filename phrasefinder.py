@@ -57,7 +57,7 @@ def find_phrases(phrases, files):
 
 
 def display_and_save(found, longest_filename):
-    output = open("output.txt","w", encoding="utf-8")
+    output = open("output.txt","w")
     for (phrase, instance) in found.items(): 
         if len(instance) != 0:
             out = '\n"{}"'.format(phrase)
