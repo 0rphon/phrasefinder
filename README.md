@@ -6,4 +6,6 @@ it expects two arguments:\
   and the path to an excel file with one sentence on each row\
  \
 Usage: python phrasefinder.py [name of text folder] [name of excel file]\
-Example: python phrasefinder.py txtfiles document.xlsx
+Example: python phrasefinder.py txtfiles document.xlsx\
+\
+made for a contract
